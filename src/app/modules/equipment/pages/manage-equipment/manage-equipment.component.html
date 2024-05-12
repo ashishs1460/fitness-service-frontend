@@ -1,0 +1,43 @@
+<div class="p-2">
+    <h2>Manage my Equipment</h2>
+    <hr />
+    <div class="alert bg-red-500 text-white rounded-md mt-2 p-2" role="alert" *ngIf="errorMsg.length">
+        <p class="m-0" *ngFor="let msg of errorMsg">{{ msg }}</p>
+    </div>
+    <div class="flex flex-wrap gap-2">
+        <div class="w-full md:w-1/3">
+            <img class="rounded-full w-full h-full object-cover" [src]="selectedPicture || 'https://source.unsplash.com/user/c_v_r/1900x800'" alt="" />
+            <div class="mt-2">
+                <input (change)="onFileSelected($event)" class="form-control block w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500" type="file" id="formFile" accept="image/*" />
+            </div>
+        </div>
+        <div class="w-full mt-10 md:w-2/3">
+            <form class="flex flex-col gap-4">
+                <div class="w-full ">
+                    <label for="title" class="text-sm font-medium">Name</label>
+                    <input [(ngModel)]="equipmentRequest.equipmentName" type="text" class="appearance-none rounded-md block w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="title" name="title" placeholder="Equipment title" />
+                </div>
+                <div class="w-full md:w-1/2">
+                    <label for="isbn" class="text-sm font-medium">ISBN</label>
+                    <input [(ngModel)]="equipmentRequest.isbn" type="text" class="appearance-none rounded-md block w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="isbn" name="isbn" />
+                </div>
+                <div class="w-full">
+                    <label for="description" class="text-sm font-medium">Description</label>
+                    <textarea [(ngModel)]="equipmentRequest.description" rows="4" class="appearance-none rounded-md block w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="description" name="description" placeholder="Description"></textarea>
+                </div>
+                <div class="w-full flex items-center">
+                    <input [(ngModel)]="equipmentRequest.sharable" class="form-check-input mr-2" type="checkbox" id="gridCheck" name="shareable" />
+                    <label class="text-sm font-medium" for="gridCheck">Share me</label>
+                </div>
+                <div class="w-full flex justify-end gap-2">
+                    <button (click)="saveEquipment()" type="submit" class="text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-md px-4 py-2 flex items-center">
+                        <i class="fas fa-save mr-2"></i>&nbsp;Save
+                    </button>
+                    <a routerLink="/equipments/my-equipments" class="text-red-500 hover:text-red-700 font-medium">
+                        <i class="fas fa-times mr-2"></i>&nbsp;Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

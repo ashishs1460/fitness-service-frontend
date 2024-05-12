@@ -1,0 +1,60 @@
+<h3 class="text-4xl font-bold">Equipment List</h3>
+<!-- <div *ngIf="message" class="alert shadow-md rounded-lg"
+  [class]="level === 'error' ? 'bg-red-500 text-white' : level === 'success' ? 'bg-green-500 text-white' : ''"
+  role="alert"
+>
+  <div class="flex items-center px-4 py-3">
+    <i class="fas fa-solid fa-circle-exclamation mr-3"
+      [class.text-red-500]="level === 'error'"
+      [class.text-green-500]="level === 'success'"></i>
+    <p class="font-medium">{{ message }}</p>
+  </div>
+</div> -->
+<hr>
+<div class="flex justify-start gap-2 flex-wrap">
+    <app-equipment-card 
+    *ngFor="let equipment of equipmentResponse.content"
+     [equipment]="equipment"
+     (borrow)="borrowEquipment($event)"
+     > 
+    </app-equipment-card>
+</div>
+
+<div class="flex justify-center mt-4">
+    <nav aria-label="Page navigation example">
+      <ul class="inline-flex list-none -space-x-px">
+        <li class="inline-flex items-center rounded-l-md border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
+            [class.opacity-50]="page === 0">
+          <a (click)="goToFirstPage()" href="javascript:void(0)" aria-label="Previous">
+            <i class="fas fa-solid fa-angles-left"></i>
+          </a>
+        </li>
+        <li class="inline-flex items-center rounded-l-none border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
+            [class.opacity-50]="page === 0">
+          <a (click)="goToPreviousPage()" href="javascript:void(0)" aria-label="Previous">
+            <i class="fas fa-solid fa-angle-left"></i>
+          </a>
+        </li>
+        <li *ngFor="let pageIndex of pages" class="inline-flex items-center px-3 py-2 text-center">
+            <a (click)="gotToPage(pageIndex)" class="text-blue-600 hover:text-blue-700"
+              [class.font-bold]="page === pageIndex" href="javascript:void(0)">
+              {{ pageIndex + 1 }}
+            </a>
+          </li>
+          
+        <li class="inline-flex items-center rounded-r-none border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
+            [class.opacity-50]="isLastPage">
+          <a (click)="goToNextPage()" href="javascript:void(0)" aria-label="Next">
+            <i class="fas fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li class="inline-flex items-center rounded-r-md border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
+            [class.opacity-50]="isLastPage">
+          <a (click)="goToLastPage()" href="javascript:void(0)" aria-label="Next">
+            <i class="fas fa-solid fa-angles-right"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  

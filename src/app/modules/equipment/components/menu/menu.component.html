@@ -1,0 +1,50 @@
+<nav class="bg-gradient-to-r from-purple-500 to-indigo-600 py-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <a class="text-white text-2xl font-bold" href="javascript:void(0)">FSN</a>
+      <button class="block lg:hidden text-white focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+      <div class="hidden lg:block">
+        <ul class="flex space-x-6">
+          <li class="nav-item">
+            <a class="text-white hover:text-gray-200 nav-link " href="equipments">
+              <i class="fas fa-home-alt"></i>&nbsp;Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white hover:text-gray-200 nav-link " href="/equipments/my-equipments">
+              <i class="fas fa-book"></i>&nbsp;My Equipments
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white hover:text-gray-200 nav-link " href="/equipments/my-waiting-list">
+              <i class="fas fa-heart"></i>&nbsp;My waiting list
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white hover:text-gray-200 nav-link " href="/equipments/my-returned-equipments">
+              <i class="fa-solid fa-truck-fast"></i>&nbsp;My returned equipments
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white hover:text-gray-200 nav-link " href="/equipments/my-borrowed-equipments">
+              <i class="fas fa-list-check"></i>&nbsp;Borrowed Equipments
+            </a>
+          </li>
+        </ul>
+      </div>
+      <form class="hidden lg:flex items-center ml-6" role="search">
+        <input class="border border-gray-300 rounded-l px-4 py-2 focus:outline-none" type="search" placeholder="Find a book" aria-label="Search">
+        <button class="bg-white border border-l-0 border-gray-300 rounded-r px-4 py-2 hover:bg-gray-100 focus:outline-none" type="submit"><i class="fas fa-search text-gray-600"></i></button>
+      </form>
+      <div class="lg:flex items-center hidden">
+       
+        <span class="text-white font-semibold mr-4">{{username}}</span>
+        <button class="text-white hover:text-gray-200 focus:outline-none" (click)="logout()">
+          <i class="fas fa-door-open"></i>
+        </button>
+      </div>
+      
+    </div>
+  </nav>
+  
