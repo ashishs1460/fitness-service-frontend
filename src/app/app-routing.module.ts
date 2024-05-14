@@ -6,11 +6,12 @@ import { ActivateAccountComponent } from './pages/activate-account/activate-acco
 import { authGuard } from './services/guard/auth.guard';
 
 const routes: Routes = [
+
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path: 'activate-account',component: ActivateAccountComponent},
   {
-    path:'equipments',
+    path:'',
     loadChildren:()=> import('./modules/equipment/equipment.module').then(m=>m.EquipmentModule),
     canActivate:[authGuard]
   }

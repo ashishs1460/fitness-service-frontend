@@ -7,6 +7,7 @@ import { ManageEquipmentComponent } from './pages/manage-equipment/manage-equipm
 import { BorrowedEquipmentListComponent } from './pages/borrowed-equipment-list/borrowed-equipment-list.component';
 import { ReturnedEquipmentsComponent } from './pages/returned-equipments/returned-equipments.component';
 import { authGuard } from '../../services/guard/auth.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
     children:[
       {
         path:'',
+        component:HomeComponent,
+        canActivate:[authGuard]
+      },
+      {
+        path:'equipment-list',
         component:EquipmentListComponent,
         canActivate:[authGuard]
       },

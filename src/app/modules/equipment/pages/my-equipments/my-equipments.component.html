@@ -1,12 +1,22 @@
-<h3 class="text-4xl font-bold">My Equipments</h3>
+<section class="py-48 ">
+
+
+
+
+<div class=" flex justify-center gap-2 flex-wrap">
+  <div class="max-w-7xl w-full flex flex-col items-center justify-center gap-3">
+    <h2 class="text-2xl text-center md:text-5xl text-white font-semibold uppercase tracking-wide">
+        My <span class="text-lime-500">Equipments</span>
+    </h2>
+
 <div class="flex justify-end m-4">
-  <a routerLink="/equipments/manage" class="text-white  bg-blue-700 hover:bg-blue-100 hover:text-black font-medium rounded-lg px-4 py-2 flex items-center">
-    <i class="fas fa-plus mr-2"></i>&nbsp;New book
+  <a routerLink="/manage" class="text-white  bg-green-700 hover:bg-blue-100 hover:text-black font-medium rounded-lg px-4 py-2 flex items-center">
+    <i class="fas fa-plus mr-2"></i>&nbsp;New Equipment
   </a>
 </div>
 
-<hr>
-<div class="flex justify-start gap-2 flex-wrap">
+</div>
+  
     <app-equipment-card 
     *ngFor="let equipment of equipmentResponse.content"
      [equipment]="equipment"
@@ -19,41 +29,41 @@
     </app-equipment-card>
 </div>
 
-<div class="flex justify-center mt-4">
-    <nav aria-label="Page navigation example">
-      <ul class="inline-flex list-none -space-x-px">
-        <li class="inline-flex items-center rounded-l-md border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
-            [class.opacity-50]="page === 0">
-          <a (click)="goToFirstPage()" href="javascript:void(0)" aria-label="Previous">
-            <i class="fas fa-solid fa-angles-left"></i>
+<div class="flex justify-center my-4">
+  <nav aria-label="Page navigation example">
+    <ul class="inline-flex list-none -space-x-px">
+      <li class="inline-flex items-center rounded-l-md bg-gray-800 border border-gray-400 px-3 py-2 hover:bg-gray-700 cursor-pointer"
+          [class.opacity-50]="page === 0">
+        <a (click)="goToFirstPage()" href="javascript:void(0)" aria-label="Previous">
+          <i class="fas fa-solid fa-angles-left text-lime-300"></i>
+        </a>
+      </li>
+      <li class="inline-flex items-center rounded-l-none bg-gray-800 border border-gray-400 px-3 py-2 hover:bg-gray-700 cursor-pointer"
+          [class.opacity-50]="page === 0">
+        <a (click)="goToPreviousPage()" href="javascript:void(0)" aria-label="Previous">
+          <i class="fas fa-solid fa-angle-left text-lime-300"></i>
+        </a>
+      </li>
+      <li *ngFor="let pageIndex of pages" class="inline-flex items-center px-3 py-2 text-center">
+          <a (click)="gotToPage(pageIndex)" class="text-lime-500 hover:text-lime-700"
+            [class.font-bold]="page === pageIndex" href="javascript:void(0)">
+            {{ pageIndex + 1 }}
           </a>
         </li>
-        <li class="inline-flex items-center rounded-l-none border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
-            [class.opacity-50]="page === 0">
-          <a (click)="goToPreviousPage()" href="javascript:void(0)" aria-label="Previous">
-            <i class="fas fa-solid fa-angle-left"></i>
-          </a>
-        </li>
-        <li *ngFor="let pageIndex of pages" class="inline-flex items-center px-3 py-2 text-center">
-            <a (click)="gotToPage(pageIndex)" class="text-blue-600 hover:text-blue-700"
-              [class.font-bold]="page === pageIndex" href="javascript:void(0)">
-              {{ pageIndex + 1 }}
-            </a>
-          </li>
-          
-        <li class="inline-flex items-center rounded-r-none border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
-            [class.opacity-50]="isLastPage">
-          <a (click)="goToNextPage()" href="javascript:void(0)" aria-label="Next">
-            <i class="fas fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li class="inline-flex items-center rounded-r-md border border-gray-300 px-3 py-2 hover:bg-gray-100 cursor-pointer"
-            [class.opacity-50]="isLastPage">
-          <a (click)="goToLastPage()" href="javascript:void(0)" aria-label="Next">
-            <i class="fas fa-solid fa-angles-right"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
+        
+      <li class="inline-flex items-center rounded-r-none bg-gray-800 border border-gray-400 px-3 py-2 hover:bg-gray-700 cursor-pointer"
+          [class.opacity-50]="isLastPage">
+        <a (click)="goToNextPage()" href="javascript:void(0)" aria-label="Next">
+          <i class="fas fa-solid fa-chevron-right text-lime-300"></i>
+        </a>
+      </li>
+      <li class="inline-flex items-center rounded-r-md bg-gray-800 border border-gray-400 px-3 py-2 hover:bg-gray-700 cursor-pointer"
+          [class.opacity-50]="isLastPage">
+        <a (click)="goToLastPage()" href="javascript:void(0)" aria-label="Next">
+          <i class="fas fa-solid fa-angles-right text-lime-300"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</section>

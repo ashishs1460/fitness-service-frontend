@@ -132,7 +132,7 @@ export class MyEquipmentsComponent implements OnInit {
   }
 
   editEquipment(equipment: EquipmentResponse) {
-    this.router.navigate(['equipments', 'manage', equipment.id]);
+    this.router.navigate([ 'manage', equipment.id]);
   }
  
 }

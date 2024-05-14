@@ -30,7 +30,7 @@ export class LoginComponent {
       next:(res)=>{
         this.tokenService.token = res.token as string;
         sessionStorage.setItem('user',res.fullName);
-        this.router.navigate(['equipments'])
+        this.router.navigate([''])
       },
       error:(err)=>{
         console.log(err);

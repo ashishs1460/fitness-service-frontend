@@ -1,37 +1,41 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
-      <h3 class="text-center text-lg font-semibold">Create an account</h3>
-      <hr class="my-4">
-      <div class="text-red-600 bg-red-200" role="alert" *ngIf="errorMsg.length">
+<body style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="max-w-md w-full px-8 py-10 bg-black rounded-lg shadow-md">
+      <!-- Logo -->
+      <div class="flex justify-center ">
+        <img src="/assets/images/fitShareLogo.png" alt="Logo" class="w-36 h-auto ">
+        
+      </div>
+      <hr class="mb-2">
+      <h1 class="text-3xl font-bold text-gray-300 text-center mb-2 bg-gradient-to-r from-lime-600 to-lime-700">SignUp</h1>
+      <div class="text-red-500 bg-red-200 rounded-md px-4 py-3" role="alert" *ngIf="errorMsg.length">
         <p *ngFor="let msg of errorMsg">{{msg}}</p>
       </div>
       <div class="mb-3">
         <label for="firstname" class="block text-sm font-medium text-gray-700">Firstname</label>
-        <input [(ngModel)]="registerRequest.firstname" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="firstname" placeholder="Firstname">
+        <input [(ngModel)]="registerRequest.firstname" type="text"  class="mt-1 block w-full bg-gray-600 rounded-md border border-gray-300 shadow-sm px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-1">
       </div>
       <div class="mb-3">
         <label for="lastname" class="block text-sm font-medium text-gray-700">Lastname</label>
-        <input [(ngModel)]="registerRequest.lastname" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="lastname" placeholder="Lastname">
+        <input [(ngModel)]="registerRequest.lastname" type="text" class="mt-1 block w-full rounded-md border bg-gray-600 border-gray-300 shadow-sm px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-1">
       </div>
       <div class="mb-3">
         <label for="login" class="block text-sm font-medium text-gray-700">Email address</label>
-        <input [(ngModel)]="registerRequest.email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="login" placeholder="name@example.com">
+        <input [(ngModel)]="registerRequest.email" type="email" class="mt-1 block w-full rounded-md border bg-gray-600 border-gray-300 shadow-sm px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-1">
       </div>
       <div class="mb-3">
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-        <input [(ngModel)]="registerRequest.password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="password" placeholder="Password">
+        <input [(ngModel)]="registerRequest.password" type="password" class="mt-1 block w-full rounded-md border bg-gray-600  border-gray-300 shadow-sm px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-1">
       </div>
       <div class="flex justify-between mb-3">
-        <button (click)="register()" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          <em class="fas fa-sign-in-alt mr-2"></em>Create an account
+        <button (click)="register()" type="button" class="inline-flex items-center px-2 py-2 bg-lime-500 text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
+          <em class="fas fa-user-plus mr-2 "></em>Create an account
         </button>
-        <div>
-          Already have an account?&nbsp;
-          <button (click)="login()" type="button" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-            Login
-          </button>
+        <div class="text-sm font-medium text-lime-600 hover:text-lime-700">
+          Already have an account?
+          <button (click)="login()" class="block" type="button">Login</button>
         </div>
       </div>
     </div>
   </div>
-  
+</body>

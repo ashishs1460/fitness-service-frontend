@@ -1,42 +1,42 @@
-<div 
-  class="card w-64 m-4"
-  
-  >
-    <img [src]="equipmentImage" class="object-cover h-64 w-full" alt="..." />
-    <div class="card-body overflow-y-scroll px-4 py-3">
-      <h5 class="card-title text-base font-bold mb-2 flex items-center">
-        <i class="fas fa-dumbbell mr-2"></i>
-        {{ equipment.equipmentName }}
+<div class="card w-64 m-4 border border-gray-200 rounded-lg shadow-lg hover:border-lime-600 overflow-hidden hover:shadow-xl">
+  <img [src]="equipmentImage" class="object-cover h-64 w-full" alt="Equipment Image" />
+  <div class="card-body px-4 py-3">
+      <h5 class="card-title text-xl font-bold mb-2 flex items-center text-lime-500">
+          <i class="fas fa-dumbbell text-orange-500 mr-2"></i>
+          {{ equipment.equipmentName }}
       </h5>
-     
       <h6 class="text-sm text-gray-500 mb-2 flex items-center">
-        <i class="fas fa-code mr-2"></i>
-        {{ equipment.isbn }}
+          <i class="fas fa-barcode text-gray-400 mr-2"></i>
+          {{ equipment.isbn }}
       </h6>
       <h6 class="text-sm text-gray-500 flex items-center">
-        <i class="fas fa-user mr-2"></i>
-        {{ equipment.owner }}
+          <i class="fas fa-user text-gray-400 mr-2"></i>
+          {{ equipment.owner }}
       </h6>
-      <hr class="my-2" />
-      <p class="card-text text-sm">{{ equipment.description}}</p>
-    </div>
-    <div class="card-footer flex items-center justify-between px-4 py-3">
-      <div class="flex items-center">
-        <app-rating [rating]="equipment.rate || 0"></app-rating>
-        <span class="font-bold text-sm ml-2" *ngIf="equipment.rate || 0 > 0">
-          {{ equipment.rate }}
-        </span>
-      </div>
-      <div class="flex items-center space-x-2" *ngIf="!manage">
-        <i (click)="onShowDetails()" class="fas fa-circle-info text-primary cursor-pointer"></i>
-        <i (click)="onBorrow()" class="fas fa-list-check text-primary cursor-pointer"></i>
-        <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger cursor-pointer"></i>
-      </div>
-      <div class="flex items-center space-x-2" *ngIf="manage">
-        <i (click)="onEdit()" class="fas fa-edit text-success cursor-pointer"></i>
-        <i (click)="onShare()" class="fas fa-share-nodes text-primary cursor-pointer"></i>
-        <i (click)="onArchive()" class="fas fa-archive text-danger cursor-pointer"></i>
-      </div>
-    </div>
+      <hr class="my-2 " />
+      <p class="card-text text-sm text-gray-600 overflow-scroll h-[80px]">{{ equipment.description }}</p>
   </div>
-  
+  <div class="card-footer  px-4 py-3">
+      <div class="flex items-center">
+          <app-rating [rating]="equipment.rate || 0"></app-rating>
+          <span class="font-bold text-sm  text-yellow-300" *ngIf="equipment.rate || 0 > 0">
+              {{ equipment.rate }}
+          </span>
+      </div>
+      <div class="flex items-center space-x-4" *ngIf="!manage">
+        <button (click)="onBorrow()"
+                class="bg-transparent hover:bg-lime-500 text-lime-500 hover:text-white font-semibold py-2 px-4 border border-lime-500 hover:border-transparent rounded-lg cursor-pointer transition duration-200">
+            Rent
+        </button>
+    </div>
+    
+        
+      <div class="flex items-center space-x-2" *ngIf="manage">
+        <i (click)="onEdit()" class="fas fa-edit text-4xl text-yellow-400 cursor-pointer"></i>
+        <i (click)="onShare()" class="fas fa-share-nodes text-4xl text-lime-500 cursor-pointer"></i> 
+        <i (click)="onArchive()" class="fas fa-archive text-4xl text-red-500 cursor-pointer"></i> 
+       </div>
+      
+    
+  </div>
+</div>
