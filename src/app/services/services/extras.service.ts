@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ExtrasService {
  
  
-    url:string = 'https://fitness-social-service.vercel.app/api/v1'
+    url:string = 'https://fitness-social-network.onrender.com/api/v1'
 
   constructor(
     private http : HttpClient
