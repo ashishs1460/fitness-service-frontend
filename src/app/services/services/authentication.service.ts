@@ -52,6 +52,8 @@ export class AuthenticationService extends BaseService {
     );
   }
 
+ 
+
   /** Path part for operation `authenticate()` */
   static readonly AuthenticatePath = '/auth/authenticate';
 

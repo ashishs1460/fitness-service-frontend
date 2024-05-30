@@ -65,7 +65,7 @@ export class ManageEquipmentComponent implements OnInit {
           }
         }).subscribe({
           next: () => {
-            this.router.navigate(['/equipments/my-equipments']);
+            this.router.navigate(['/my-equipments']);
           }
         });
       },
