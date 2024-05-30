@@ -12,6 +12,9 @@ import { CodeInputModule } from 'angular-code-input';
 import { HttpTokenInterceptor } from './services/interceptor/http-token.interceptor';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { SpinnerComponent } from './pages/spinner/spinner.component';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     RegisterComponent,
     ActivateAccountComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     HttpClientModule,
     FormsModule,
     CodeInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     HttpClient,
