@@ -1,0 +1,34 @@
+<div class="container mx-auto flex justify-center items-center h-screen">
+    <div *ngIf="submitted else codeForm" class="w-full max-w-md p-6 bg-white shadow-md rounded-md">
+      <div *ngIf="isOkay; else activationError" class="text-center">
+        <h2 class="text-2xl font-bold text-green-600 mb-4">Activation Successful!</h2>
+        <p>Your account has been successfully activated.</p>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" (click)="redirectToLogin()">Go to Login</button>
+       
+
+      </div>
+      <ng-template #activationError>
+        <div class="text-center">
+          <h2 class="text-2xl font-bold text-red-600 mb-4">Activation Failed!</h2>
+          <p>{{ message }}</p>
+          <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" (click)="submitted = false">Try again</button>
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #codeForm>
+      <div class="w-full max-w-md p-6 bg-white shadow-md rounded-md">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold mb-4">Type your activation code</h2>
+          <!-- Assuming 'code-input' is a custom component -->
+          <code-input [isCodeHidden]="false"
+                  [codeLength]="6"
+                  [code]="'number'"
+                  (codeCompleted)="onCodeCompleted($event)">
+         </code-input>
+          <p class="text-sm text-gray-600 mt-2">Didn't receive the code? <a href="#" class="text-blue-500">Resend</a></p>
+          <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" (click)="redirectToLogin()">Go to Login</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  
