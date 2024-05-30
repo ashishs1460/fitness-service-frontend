@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiConfiguration {
-  rootUrl: string = 'https://fitness-social-network.onrender.com/api/v1';
+  rootUrl: string = 'https://fitness-social-service.vercel.app/api/v1';
 }
 
 /**
