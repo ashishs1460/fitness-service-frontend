@@ -5,7 +5,7 @@ export interface EquipmentResponse {
   description?: string;
   equipmentName?: string;
   id?: number;
-  image?: Array<string>;
+  image?: string;
   isbn?: string;
   owner?: string;
   rate?: number;
