@@ -22,7 +22,10 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.tokenService.token;
     
-    this.spinnerService.requestStarted();
+    // Check if it's a POST request
+    if (request.method === 'POST') {
+      this.spinnerService.requestStarted();
+    }
 
     let authReq = request;
     if (token) {
