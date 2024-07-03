@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiConfiguration {
-  rootUrl: string = 'https://fitness-social-network.onrender.com/api/v1';
+  rootUrl: string = 'https://fitsharenetwork.azurewebsites.net/api/v1';
 }
 
 /**
